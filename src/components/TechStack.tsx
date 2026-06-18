@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import AnimatedSection from "./AnimatedSection";
+import Devicon from "./Devicon";
 
 /** Tech tool/skill definition */
 interface Tool {
   name: string;
-  description: string;
+  iconName: string;
 }
 
 /** Category of tools with a label and list of tools */
@@ -16,49 +18,48 @@ interface StackCategory {
 
 /**
  * DevOps & Cloud technology stack organized by category.
- * Edit this array to reflect your actual skills.
  */
 const TECH_STACK: StackCategory[] = [
   {
     category: "Cloud Providers",
     tools: [
-      { name: "AWS", description: "EC2, S3, Lambda, ECS, RDS" },
-      { name: "GCP", description: "GKE, Cloud Run, BigQuery" },
+      { name: "AWS", iconName: "amazonwebservices" },
+      { name: "OpenStack", iconName: "openstack" },
     ],
   },
   {
     category: "Containerization",
     tools: [
-      { name: "Docker", description: "Multi-stage builds, Compose" },
-      { name: "Kubernetes", description: "Helm, ArgoCD, Service Mesh" },
+      { name: "Docker", iconName: "docker" },
+      { name: "Kubernetes", iconName: "kubernetes" },
     ],
   },
   {
     category: "CI/CD",
     tools: [
-      { name: "GitHub Actions", description: "Workflows, Matrix builds" },
-      { name: "Jenkins", description: "Pipeline as Code, Shared Libs" },
+      { name: "GitHub Actions", iconName: "github" },
+      { name: "Git", iconName: "git" },
     ],
   },
   {
     category: "Infrastructure as Code",
     tools: [
-      { name: "Terraform", description: "Modules, State management" },
-      { name: "Ansible", description: "Playbooks, Roles, Automation" },
+      { name: "Terraform", iconName: "terraform" },
+      { name: "Ansible", iconName: "ansible" },
     ],
   },
   {
     category: "Monitoring & Logging",
     tools: [
-      { name: "Prometheus", description: "Metrics, Alertmanager" },
-      { name: "Grafana", description: "Dashboards, Visualization" },
+      { name: "Prometheus", iconName: "prometheus" },
+      { name: "Grafana", iconName: "grafana" },
     ],
   },
   {
     category: "Operating Systems",
     tools: [
-      { name: "Linux", description: "Ubuntu, CentOS, Alpine" },
-      { name: "Shell Scripting", description: "Bash, Automation scripts" },
+      { name: "Linux", iconName: "linux" },
+      { name: "Bash", iconName: "bash" },
     ],
   },
 ];
@@ -68,46 +69,50 @@ const TECH_STACK: StackCategory[] = [
  * category-based grid with subtle hover effects.
  */
 export default function TechStack() {
+  const t = useTranslations("TechStack");
+
   return (
     <section id="stack" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl">
         {/* Section Header */}
         <AnimatedSection>
           <div className="mb-12 text-center md:mb-16">
-            <p className="mb-3 font-mono text-sm text-accent">~/stack</p>
+            <p className="mb-3 font-mono text-sm text-accent">{t("section")}</p>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Tech Stack
+              {t("title")}
             </h2>
             <p className="mx-auto max-w-lg text-muted-foreground">
-              The tools and technologies I work with daily to build, deploy,
-              and maintain cloud-native infrastructure.
+              {t("description")}
             </p>
           </div>
         </AnimatedSection>
 
-        {/* Stack Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {TECH_STACK.map((category, catIndex) => (
-            <AnimatedSection
-              key={category.category}
-              delay={catIndex * 0.08}
-            >
-              <div className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-                {/* Category Label */}
-                <h3 className="mb-4 font-mono text-xs font-medium uppercase tracking-wider text-accent">
-                  {category.category}
+        {/* Stack Categories & Grid */}
+        <div className="space-y-12">
+          {TECH_STACK.map((cat, catIndex) => (
+            <AnimatedSection key={cat.category} delay={catIndex * 0.06}>
+              <div className="space-y-4">
+                {/* Category Header */}
+                <h3 className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
+                  {cat.category}
                 </h3>
 
-                {/* Tools List */}
-                <div className="space-y-3">
-                  {category.tools.map((tool) => (
-                    <div key={tool.name} className="space-y-0.5">
-                      <p className="font-medium text-card-foreground">
+                {/* Icons Grid */}
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                  {cat.tools.map((tool) => (
+                    <div
+                      key={tool.name}
+                      className="flex flex-col items-center justify-center p-4 rounded-xl border border-border bg-card transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-accent/30 hover:shadow-accent/5"
+                    >
+                      <Devicon
+                        name={tool.iconName}
+                        logoStyle="plain"
+                        colored={true}
+                        size="2.5rem"
+                      />
+                      <span className="mt-2 text-xs font-mono text-muted-foreground">
                         {tool.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {tool.description}
-                      </p>
+                      </span>
                     </div>
                   ))}
                 </div>

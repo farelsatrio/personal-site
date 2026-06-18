@@ -1,0 +1,60 @@
+{
+  "Navbar": {
+    "about": "About",
+    "experience": "Experience",
+    "achievements": "Achievements",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "welcome": "~/welcome",
+    "greeting": "Hi, I'm",
+    "title": "DevOps & Cloud Engineer",
+    "bio": "I specialize in Cloud Computing and DevOps, with a passion for exploring the Internet of Things (IoT). I enjoy bridging the gap between hardware and software to engineer intelligent automation solutions.",
+    "downloadResume": "Download Resume",
+    "contactMe": "Contact Me"
+  },
+  "Experience": {
+    "section": "~/experience",
+    "title": "Work Experience",
+    "position": {
+      "studentIntern": "DevOps & Cloud Student Intern"
+    },
+    "bullets": {
+      "btech": {
+        "bullet1": "Managing Linux administration, server automation via Ansible (IaC), and cloud exploration with OpenStack & Ceph.",
+        "bullet2": "Streamlining application workflows with Docker, Kubernetes cluster management, and GitLab CI/CD integration.",
+        "bullet3": "Implementing real-time monitoring via Prometheus & Grafana, paired with operational efficiency using Bash scripting."
+      }
+    }
+  },
+  "Achievements": {
+    "section": "~/achievements",
+    "title": "Achievements & Certifications",
+    "categories": {
+      "Certification": "Certification",
+      "Award": "Award",
+      "Competition": "Competition"
+    },
+    "lks_prov": {
+      "title": "2nd Place - LKS Cloud Computing"
+    },
+    "lks_kab": {
+      "title": "1st Place - LKS Cloud Computing"
+    }
+  },
+  "TechStack": {
+    "section": "~/stack",
+    "title": "Tech Stack",
+    "description": "The tools and technologies I work with daily to build, deploy, and maintain cloud-native infrastructure."
+  },
+  "Contact": {
+    "section": "~/contact",
+    "title": "Get in Touch",
+    "description": "I am open to collaborations, new opportunities, and in-depth discussions regarding cloud infrastructure, DevOps practices, and IoT automation solutions. Let's connect!",
+    "orEmail": "or drop me an email at"
+  },
+  "Footer": {
+    "copyright": "All rights reserved."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "Navbar": {
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "achievements": "Prestasi",
+    "stack": "Keahlian",
+    "contact": "Kontak"
+  },
+  "Hero": {
+    "welcome": "~/selamat-datang",
+    "greeting": "Halo, Saya",
+    "title": "DevOps & Cloud Engineer",
+    "bio": "Saya memiliki spesialisasi dalam bidang Cloud Computing dan DevOps, dengan minat besar dalam mengeksplorasi ekosistem Internet of Things (IoT). Saya gemar mengintegrasikan perangkat keras dan perangkat lunak untuk menghadirkan solusi otomasi yang cerdas dan efisien.",
+    "downloadResume": "Unduh Resume",
+    "contactMe": "Hubungi Saya"
+  },
+  "Experience": {
+    "section": "~/pengalaman",
+    "title": "Pengalaman Kerja",
+    "position": {
+      "studentIntern": "Magang DevOps & Cloud"
+    },
+    "bullets": {
+      "btech": {
+        "bullet1": "Mengelola sistem Linux, otomatisasi server via Ansible (IaC), dan eksplorasi cloud menggunakan OpenStack & Ceph",
+        "bullet2": "Optimasi alur kerja aplikasi dengan Docker, manajemen kluster Kubernetes, dan integrasi pipeline GitLab CI/CD.",
+        "bullet3": "Monitoring sistem real-time via Prometheus & Grafana, serta efisiensi operasional menggunakan skrip Bash."
+      }
+    }
+  },
+  "Achievements": {
+    "section": "~/prestasi",
+    "title": "Prestasi & Sertifikasi",
+    "categories": {
+      "Certification": "Sertifikasi",
+      "Award": "Penghargaan",
+      "Competition": "Kompetisi"
+    },
+    "lks_prov": {
+      "title": "Juara 2 - LKS Cloud Computing Tingkat Provinsi Jawa Tengah"
+    },
+    "lks_kab": {
+      "title": "Juara 1 - LKS Cloud Computing Tingkat Kabupaten Banyumas"
+    }
+  },
+  "TechStack": {
+    "section": "~/keahlian",
+    "title": "Keahlian Teknologi",
+    "description": "Alat dan teknologi yang saya gunakan sehari-hari untuk membangun, merilis, dan memelihara infrastruktur cloud-native."
+  },
+  "Contact": {
+    "section": "~/kontak",
+    "title": "Hubungi Saya",
+    "description": "Saya sangat terbuka untuk kolaborasi, peluang baru, maupun diskusi mendalam seputar infrastruktur cloud, praktik DevOps, dan pengembangan solusi otomatisasi berbasis IoT. Mari terhubung!",
+    "orEmail": "atau kirim email ke"
+  },
+  "Footer": {
+    "copyright": "Hak cipta dilindungi undang-undang."
+  }
+}

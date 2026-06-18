@@ -1,24 +1,31 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Sun, Moon, Menu, X } from "lucide-react";
-import { useTheme } from "./ThemeProvider";
+import { Menu, X } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/routing";
 
-/** Navigation links configuration */
+/** Navigation links configuration with translation keys */
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Stack", href: "#stack" },
-  { label: "Contact", href: "#contact" },
+  { key: "about", href: "#about" },
+  { key: "experience", href: "#experience" },
+  { key: "achievements", href: "#achievements" },
+  { key: "stack", href: "#stack" },
+  { key: "contact", href: "#contact" },
 ] as const;
 
 /**
  * Minimalist navbar with logo, navigation links, dark mode toggle,
- * and responsive mobile hamburger menu.
+ * language toggle (EN/ID), and responsive mobile hamburger menu.
  */
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const t = useTranslations("Navbar");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   // Add subtle backdrop blur on scroll
   useEffect(() => {
@@ -40,6 +47,12 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const changeLocale = (nextLocale: "en" | "id") => {
+    if (locale !== nextLocale) {
+      router.replace(pathname, { locale: nextLocale, scroll: false });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -55,40 +68,73 @@ export default function Navbar() {
           className="font-mono text-lg font-bold tracking-tight text-foreground transition-colors hover:text-accent"
           aria-label="Home"
         >
-          {"<dev />"}
+          {"Farel"}
         </a>
 
         {/* ─── Desktop Navigation ─── */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <a
-              key={link.label}
+              key={link.key}
               href={link.href}
               className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.label}
+              {t(link.key)}
             </a>
           ))}
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-          >
-            {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
+          {/* Language Toggle */}
+          <div className="flex items-center gap-1 font-mono text-xs border-l border-border pl-4">
+            <button
+              onClick={() => changeLocale("en")}
+              className={`px-1.5 py-0.5 rounded transition-colors ${
+                locale === "en"
+                  ? "text-accent font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-border">|</span>
+            <button
+              onClick={() => changeLocale("id")}
+              className={`px-1.5 py-0.5 rounded transition-colors ${
+                locale === "id"
+                  ? "text-accent font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              ID
+            </button>
+          </div>
         </div>
 
         {/* ─── Mobile Controls ─── */}
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={toggleTheme}
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-          >
-            {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
+          {/* Language Toggle for Mobile */}
+          <div className="flex items-center gap-1 font-mono text-xs border-r border-border pr-2 mr-1">
+            <button
+              onClick={() => changeLocale("en")}
+              className={`px-1.5 py-0.5 rounded transition-colors ${
+                locale === "en"
+                  ? "text-accent font-semibold"
+                  : "text-muted-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-border">|</span>
+            <button
+              onClick={() => changeLocale("id")}
+              className={`px-1.5 py-0.5 rounded transition-colors ${
+                locale === "id"
+                  ? "text-accent font-semibold"
+                  : "text-muted-foreground"
+              }`}
+            >
+              ID
+            </button>
+          </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -107,12 +153,12 @@ export default function Navbar() {
           <div className="mx-auto flex max-w-4xl flex-col gap-1 px-6 pb-4">
             {NAV_LINKS.map((link) => (
               <a
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="rounded-lg px-3 py-2 font-mono text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
-                {link.label}
+                {t(link.key)}
               </a>
             ))}
           </div>

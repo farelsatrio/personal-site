@@ -1,1 +1,12 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#F7D96A"/>
+  <circle cx="32" cy="24" r="11" fill="#F4B183"/>
+  <path d="M18 46c2.5-8 8.5-12 14-12s11.5 4 14 12" fill="#E58A8A"/>
+  <path d="M22 20c1.5-4 4.8-6.8 10-6.8S40.5 16 42 20" stroke="#2F3E46" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="27" cy="24" r="1.6" fill="#2F3E46"/>
+  <circle cx="37" cy="24" r="1.6" fill="#2F3E46"/>
+  <path d="M28 31c1.2 1.8 3.2 2.8 4.8 2.8S35.8 32.8 37 31" stroke="#2F3E46" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M19 16c1.7-2.4 4-3.8 7-4.5" stroke="#F4B183" stroke-width="3" stroke-linecap="round"/>
+  <path d="M45 16c-1.7-2.4-4-3.8-7-4.5" stroke="#F4B183" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 52h24" stroke="#2F3E46" stroke-width="3" stroke-linecap="round"/>
+</svg>

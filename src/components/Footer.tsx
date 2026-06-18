@@ -1,29 +1,14 @@
-import { Heart } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-/**
- * Minimalist footer with copyright and a "Built with" badge.
- */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("Footer");
 
   return (
     <footer className="border-t border-border px-6 py-8">
-      <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
-        {/* Copyright */}
+      <div className="mx-auto flex max-w-4xl items-center justify-center">
         <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} Alex Chen. All rights reserved.
-        </p>
-
-        {/* Built-with badge */}
-        <p className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
-          Built with{" "}
-          <Heart
-            size={12}
-            className="text-accent"
-            fill="currentColor"
-            aria-hidden="true"
-          />{" "}
-          using Next.js &amp; Tailwind
+          &copy; {currentYear} Farel Satrio Pratama. {t("copyright")}
         </p>
       </div>
     </footer>
