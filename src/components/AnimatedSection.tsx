@@ -1,64 +1,54 @@
 "use client";
 
-import { useRef, useEffect, useState, type ReactNode } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
-  /** Delay in seconds before animation starts */
   delay?: number;
 }
 
-/**
- * Wrapper that applies a subtle fade-in + slide-up animation
- * when the section scrolls into the viewport.
- */
 export default function AnimatedSection({
   children,
   className = "",
   delay = 0,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const controls = useAnimation();
-  const [hasMounted, setHasMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Tambahkan delay sebelum animasi
+          setTimeout(() => {
+            setIsVisible(true);
+          }, delay * 1000);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "-80px" }
+    );
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
+    if (ref.current) {
+      observer.observe(ref.current);
     }
-  }, [isInView, controls]);
 
-  // Don't animate on SSR
-  if (!hasMounted) {
-    return <div className={className}>{children}</div>;
-  }
+    return () => observer.disconnect();
+  }, [delay]);
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className={className}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            ease: "easeOut",
-            delay,
-          },
-        },
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(24px)",
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        transitionDelay: `${delay}s`,
       }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

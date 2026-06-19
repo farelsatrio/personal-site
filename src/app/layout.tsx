@@ -4,7 +4,8 @@ type Props = {
   children: ReactNode;
 };
 
-// Since we have a `[locale]` layout, this layout is only used for non-matched routes (e.g. 404)
+// Root layout hanya untuk non-matched routes (404, dll)
+// Tidak perlu <html> dan <body> karena locale layout yang handle
 export default function RootLayout({ children }: Props) {
   return children;
 }

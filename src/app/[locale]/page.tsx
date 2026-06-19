@@ -1,15 +1,37 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import Achievements from "@/components/Achievements";
+import TechStack from "@/components/TechStack";
+import SocialLinks from "@/components/SocialLinks";
+import Footer from "@/components/Footer";
+
+function SectionDivider() {
+  return (
+    <div className="mx-auto max-w-4xl px-6">
+      <hr className="border-border" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div style={{padding: '50px', textAlign: 'center'}}>
-      <h1 style={{fontSize: '32px', marginBottom: '20px'}}>
-        🔧 TEST PAGE
-      </h1>
-      <p style={{fontSize: '18px'}}>
-        Jika Anda membaca ini, website berfungsi!
-      </p>
-      <p style={{fontSize: '14px', color: '#666', marginTop: '20px'}}>
-        Masalahnya ada di salah satu komponen.
-      </p>
-    </div>
+    <>
+      <Navbar />
+
+      <main className="flex-1">
+        <Hero />
+        <SectionDivider />
+        <Experience />
+        <SectionDivider />
+        <Achievements />
+        <SectionDivider />
+        <TechStack />
+        <SectionDivider />
+        <SocialLinks />
+      </main>
+
+      <Footer />
+    </>
   );
 }

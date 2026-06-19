@@ -49,7 +49,8 @@ export default function Navbar() {
 
   const changeLocale = (nextLocale: "en" | "id") => {
     if (locale !== nextLocale) {
-      router.replace(pathname, { locale: nextLocale, scroll: false });
+      const hash = typeof window !== "undefined" ? window.location.hash : "";
+      router.replace(`${pathname}${hash}`, { locale: nextLocale, scroll: false });
     }
   };
 

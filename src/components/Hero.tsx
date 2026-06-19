@@ -5,10 +5,6 @@ import AnimatedSection from "./AnimatedSection";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-/**
- * Hero section with profile picture, name, title, bio,
- * and CTA buttons for resume download and contact.
- */
 export default function Hero() {
   const t = useTranslations("Hero");
 
@@ -17,27 +13,13 @@ export default function Hero() {
       id="about"
       className="relative flex min-h-screen items-center justify-center px-6 pt-20"
     >
-      {/* Subtle gradient background decoration */}
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute -top-40 right-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute -bottom-40 left-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-      </div>
-
       <div className="relative mx-auto max-w-4xl">
         <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
-          {/* ─── Profile Picture ─── */}
+          {/* Profile Picture - DENGAN AnimatedSection */}
           <AnimatedSection className="shrink-0">
             <div className="relative">
-              {/* Decorative ring */}
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 blur-sm" />
               <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-border bg-muted md:h-48 md:w-48">
-                {/*
-                  TODO: Replace this placeholder with your actual profile picture.
-                  Place your image in /public/profile.jpg and update the src below.
-                */}
                 <Image
                   src="/profil.jpg"
                   alt="Profile picture"
@@ -50,15 +32,13 @@ export default function Hero() {
             </div>
           </AnimatedSection>
 
-          {/* ─── Text Content ─── */}
+          {/* Text Content - DENGAN AnimatedSection */}
           <div className="text-center md:text-left">
             <AnimatedSection delay={0.1}>
-              {/* Subtle tag line */}
               <p className="mb-3 font-mono text-sm text-accent">
                 {t("welcome")}
               </p>
 
-              {/* Name */}
               <h1 className="mb-2 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                 {t("greeting")}{" "}
                 <span className="bg-gradient-to-r from-accent to-accent-foreground bg-clip-text text-transparent">
@@ -66,26 +46,19 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* Title */}
               <p className="mb-4 font-mono text-lg text-muted-foreground md:text-xl">
                 {t("title")}
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              {/* Bio */}
               <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
                 {t("bio")}
               </p>
             </AnimatedSection>
 
-            {/* ─── CTA Buttons ─── */}
             <AnimatedSection delay={0.3}>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-                {/*
-                  TODO: Place your actual resume PDF at /public/resume.pdf
-                  The download button links to this file.
-                */}
                 <a
                   href="/resume.pdf"
                   download
