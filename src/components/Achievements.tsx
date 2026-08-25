@@ -11,57 +11,54 @@ export default function Achievements() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Award":
-        return <Award className="h-8 w-8 text-accent" />;
+        return <Award className="h-5 w-5" />;
       case "Trophy":
-        return <Trophy className="h-8 w-8 text-accent" />;
+        return <Trophy className="h-5 w-5" />;
       case "Medal":
-        return <Medal className="h-8 w-8 text-accent" />;
+        return <Medal className="h-5 w-5" />;
       default:
-        return <Award className="h-8 w-8 text-accent" />;
+        return <Award className="h-5 w-5" />;
     }
   };
 
   return (
     <section id="achievements" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-4xl">
-        {/* Section Header */}
+      <div className="mx-auto max-w-5xl">
+        {/* Section Header — left-aligned */}
         <AnimatedSection>
-          <div className="mb-12 text-center md:mb-16">
-            <p className="mb-3 font-mono text-sm text-accent">{t("section")}</p>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              {t("title")}
-            </h2>
-          </div>
+          <h2 className="mb-12 text-3xl font-bold tracking-tight text-foreground md:mb-16 md:text-4xl">
+            {t("title")}
+          </h2>
         </AnimatedSection>
 
-        {/* Grid Layout */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Grid — 2 columns matching 2 items */}
+        <div className="grid gap-6 sm:grid-cols-2">
           {achievements.map((item, index) => (
-            <AnimatedSection key={item.titleKey} delay={index * 0.08}>
-              <div className="group flex flex-col justify-between h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <AnimatedSection key={item.titleKey} delay={index * 0.1}>
+              <div className="flex h-full flex-col justify-between rounded-xl border border-border bg-card p-6 transition-colors duration-200 hover:border-accent/30 md:p-8">
                 <div>
-                  {/* Category & Icon */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-medium uppercase tracking-wider text-accent">
-                      {t(`categories.${item.category}`)}
-                    </span>
-                    <div className="p-2 rounded-lg bg-muted border border-border transition-colors duration-300 group-hover:border-accent/20 group-hover:bg-accent/5">
+                  {/* Icon + Category */}
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       {getIcon(item.iconName)}
                     </div>
+                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                      {t(`categories.${item.category}`)}
+                    </span>
                   </div>
 
                   {/* Title & Organization */}
-                  <h3 className="mb-2 text-lg font-bold text-foreground transition-colors duration-300 group-hover:text-accent">
+                  <h3 className="text-lg font-semibold text-foreground">
                     {t(item.titleKey)}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="mt-2 text-sm text-muted-foreground">
                     {item.organization}
                   </p>
                 </div>
 
-                {/* Footer details: Date & Optional Link */}
-                <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
-                  <span className="font-mono text-xs text-muted-foreground">
+                {/* Footer: Date & Link */}
+                <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
+                  <span className="text-sm text-muted-foreground">
                     {item.date}
                   </span>
                   {item.credentialLink && (
@@ -69,9 +66,9 @@ export default function Achievements() {
                       href={item.credentialLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-xs text-accent transition-colors hover:text-accent-foreground"
+                      className="inline-flex items-center gap-1.5 text-sm text-accent transition-colors hover:text-accent-foreground"
                     >
-                      Verify <ExternalLink size={12} />
+                      Verify <ExternalLink size={14} />
                     </a>
                   )}
                 </div>

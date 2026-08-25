@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 /* ─── Custom SVG Brand Icons ─── */
 /* Lucide v1+ removed brand icons, so we use inline SVGs from Simple Icons */
 
-function GitHubIcon({ size = 22 }: { size?: number }) {
+function GitHubIcon({ size = 18 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -21,7 +21,7 @@ function GitHubIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-function LinkedInIcon({ size = 22 }: { size?: number }) {
+function LinkedInIcon({ size = 18 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -35,7 +35,7 @@ function LinkedInIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-function InstagramIcon({ size = 22 }: { size?: number }) {
+function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -75,66 +75,56 @@ const SOCIAL_LINKS: SocialLink[] = [
     href: "https://www.instagram.com/farelstrio_",
     icon: InstagramIcon,
   },
-  {
-    label: "Email",
-    href: "mailto:farelsatriop@gmail.com",
-    icon: Mail,
-  },
 ];
 
 /**
- * Contact section with social media icon links and a clear heading.
+ * Contact section — email as primary CTA, social icons as secondary.
  */
 export default function SocialLinks() {
   const t = useTranslations("Contact");
 
   return (
     <section id="contact" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         <AnimatedSection>
-          <div className="text-center">
-            <p className="mb-3 font-mono text-sm text-accent">{t("section")}</p>
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               {t("title")}
             </h2>
-            <p className="mx-auto mb-10 max-w-md text-muted-foreground">
+            <p className="mb-10 text-muted-foreground">
               {t("description")}
             </p>
+
+            {/* Primary CTA — Email */}
+            <a
+              href="mailto:farelsatriop@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent/90"
+            >
+              <Mail size={16} />
+              farelsatriop@gmail.com
+            </a>
           </div>
         </AnimatedSection>
 
-        {/* Social Icons */}
+        {/* Social Icons — secondary, smaller */}
         <AnimatedSection delay={0.15}>
-          <div className="flex items-center justify-center gap-4">
+          <div className="mt-10 flex items-center justify-center gap-3">
             {SOCIAL_LINKS.map((link) => {
               const Icon = link.icon;
               return (
                 <a
                   key={link.label}
                   href={link.href}
-                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="group flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground transition-all duration-300 hover:border-accent/40 hover:text-accent hover:shadow-lg hover:shadow-accent/5"
-                  aria-label={`Visit ${link.label} profile`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
+                  aria-label={link.label}
                 >
-                  <Icon size={22} />
+                  <Icon size={18} />
                 </a>
               );
             })}
           </div>
-        </AnimatedSection>
-
-        {/* Direct email text */}
-        <AnimatedSection delay={0.25}>
-          <p className="mt-8 text-center font-mono text-sm text-muted-foreground">
-            {t("orEmail")}{" "}
-            <a
-              href="mailto:farelsatriop@gmail.com"
-              className="text-accent transition-colors hover:text-accent-foreground"
-            >
-              farelsatriop@gmail.com
-            </a>
-          </p>
         </AnimatedSection>
       </div>
     </section>

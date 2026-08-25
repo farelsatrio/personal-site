@@ -15,8 +15,8 @@ const NAV_LINKS = [
 ] as const;
 
 /**
- * Minimalist navbar with logo, navigation links, dark mode toggle,
- * language toggle (EN/ID), and responsive mobile hamburger menu.
+ * Clean, professional navbar with logo, navigation links,
+ * language toggle, CTA button, and responsive mobile menu.
  */
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Add subtle backdrop blur on scroll
+  // Backdrop on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -36,7 +36,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change / resize
+  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -58,78 +58,86 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+          ? "bg-background/90 backdrop-blur-lg border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        {/* ─── Logo / Name ─── */}
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        {/* ─── Logo ─── */}
         <a
           href="#about"
-          className="font-mono text-lg font-bold tracking-tight text-foreground transition-colors hover:text-accent"
+          className="text-lg font-semibold tracking-tight text-foreground"
           aria-label="Home"
         >
-          {"Farel"}
+          Farel<span className="text-accent">.</span>
         </a>
 
         {/* ─── Desktop Navigation ─── */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.key}
               href={link.href}
-              className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {t(link.key)}
             </a>
           ))}
+        </div>
 
+        {/* ─── Desktop Right: Lang Toggle + CTA ─── */}
+        <div className="hidden items-center gap-4 md:flex">
           {/* Language Toggle */}
-          <div className="flex items-center gap-1 font-mono text-xs border-l border-border pl-4">
+          <div className="flex items-center overflow-hidden rounded-full border border-border text-xs">
             <button
               onClick={() => changeLocale("en")}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
+              className={`px-3 py-1.5 transition-colors ${
                 locale === "en"
-                  ? "text-accent font-semibold"
+                  ? "bg-accent text-white"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               EN
             </button>
-            <span className="text-border">|</span>
             <button
               onClick={() => changeLocale("id")}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
+              className={`px-3 py-1.5 transition-colors ${
                 locale === "id"
-                  ? "text-accent font-semibold"
+                  ? "bg-accent text-white"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               ID
             </button>
           </div>
+
+          <a
+            href="#contact"
+            className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90"
+          >
+            {t("contact")}
+          </a>
         </div>
 
         {/* ─── Mobile Controls ─── */}
-        <div className="flex items-center gap-2 md:hidden">
-          {/* Language Toggle for Mobile */}
-          <div className="flex items-center gap-1 font-mono text-xs border-r border-border pr-2 mr-1">
+        <div className="flex items-center gap-3 md:hidden">
+          {/* Mobile Language Toggle */}
+          <div className="flex items-center overflow-hidden rounded-full border border-border text-xs">
             <button
               onClick={() => changeLocale("en")}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
+              className={`px-2.5 py-1 transition-colors ${
                 locale === "en"
-                  ? "text-accent font-semibold"
+                  ? "bg-accent text-white"
                   : "text-muted-foreground"
               }`}
             >
               EN
             </button>
-            <span className="text-border">|</span>
             <button
               onClick={() => changeLocale("id")}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
+              className={`px-2.5 py-1 transition-colors ${
                 locale === "id"
-                  ? "text-accent font-semibold"
+                  ? "bg-accent text-white"
                   : "text-muted-foreground"
               }`}
             >
@@ -139,7 +147,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -148,16 +156,16 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ─── Mobile Menu Dropdown ─── */}
+      {/* ─── Mobile Menu ─── */}
       {isMobileMenuOpen && (
-        <div className="border-b border-border bg-background/95 backdrop-blur-md md:hidden">
-          <div className="mx-auto flex max-w-4xl flex-col gap-1 px-6 pb-4">
+        <div className="border-b border-border bg-background md:hidden">
+          <div className="mx-auto flex max-w-5xl flex-col px-6 pb-6 pt-2">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.key}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-lg px-3 py-2 font-mono text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="border-b border-border/50 py-3.5 text-sm text-muted-foreground transition-colors hover:text-foreground last:border-0"
               >
                 {t(link.key)}
               </a>

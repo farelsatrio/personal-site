@@ -65,52 +65,49 @@ const TECH_STACK: StackCategory[] = [
 ];
 
 /**
- * Tech Stack section displaying DevOps & Cloud tools in a clean
- * category-based grid with subtle hover effects.
+ * Tech Stack section — clean category-based grid without
+ * excessive hover effects.
  */
 export default function TechStack() {
   const t = useTranslations("TechStack");
 
   return (
     <section id="stack" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-4xl">
-        {/* Section Header */}
+      <div className="mx-auto max-w-5xl">
+        {/* Section Header — left-aligned with description */}
         <AnimatedSection>
-          <div className="mb-12 text-center md:mb-16">
-            <p className="mb-3 font-mono text-sm text-accent">{t("section")}</p>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              {t("title")}
-            </h2>
-            <p className="mx-auto max-w-lg text-muted-foreground">
-              {t("description")}
-            </p>
-          </div>
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            {t("title")}
+          </h2>
+          <p className="mb-12 max-w-lg text-muted-foreground md:mb-16">
+            {t("description")}
+          </p>
         </AnimatedSection>
 
-        {/* Stack Categories & Grid */}
-        <div className="space-y-12">
+        {/* Stack Categories */}
+        <div className="space-y-10">
           {TECH_STACK.map((cat, catIndex) => (
             <AnimatedSection key={cat.category} delay={catIndex * 0.06}>
-              <div className="space-y-4">
-                {/* Category Header */}
-                <h3 className="font-mono text-xs font-semibold text-accent uppercase tracking-wider">
+              <div>
+                {/* Category Label — subtle, muted */}
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   {cat.category}
                 </h3>
 
-                {/* Icons Grid */}
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                {/* Tool Grid */}
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                   {cat.tools.map((tool) => (
                     <div
                       key={tool.name}
-                      className="flex flex-col items-center justify-center p-4 rounded-xl border border-border bg-card transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-accent/30 hover:shadow-accent/5"
+                      className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-4 transition-colors duration-200 hover:border-accent/30"
                     >
                       <Devicon
                         name={tool.iconName}
                         logoStyle="plain"
                         colored={true}
-                        size="2.5rem"
+                        size="2rem"
                       />
-                      <span className="mt-2 text-xs font-mono text-muted-foreground">
+                      <span className="mt-2 text-xs text-muted-foreground">
                         {tool.name}
                       </span>
                     </div>

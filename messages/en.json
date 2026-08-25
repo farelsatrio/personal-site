@@ -7,7 +7,6 @@
     "contact": "Contact"
   },
   "Hero": {
-    "welcome": "~/welcome",
     "greeting": "Hi, I'm",
     "title": "DevOps & Cloud Engineer",
     "bio": "I specialize in Cloud Computing and DevOps, with a passion for exploring the Internet of Things (IoT). I enjoy bridging the gap between hardware and software to engineer intelligent automation solutions.",
@@ -15,7 +14,6 @@
     "contactMe": "Contact Me"
   },
   "Experience": {
-    "section": "~/experience",
     "title": "Work Experience",
     "position": {
       "studentIntern": "DevOps & Cloud Student Intern"
@@ -29,7 +27,6 @@
     }
   },
   "Achievements": {
-    "section": "~/achievements",
     "title": "Achievements & Certifications",
     "categories": {
       "Certification": "Certification",
@@ -44,15 +41,12 @@
     }
   },
   "TechStack": {
-    "section": "~/stack",
     "title": "Tech Stack",
     "description": "The tools and technologies I work with daily to build, deploy, and maintain cloud-native infrastructure."
   },
   "Contact": {
-    "section": "~/contact",
     "title": "Get in Touch",
-    "description": "I am open to collaborations, new opportunities, and in-depth discussions regarding cloud infrastructure, DevOps practices, and IoT automation solutions. Let's connect!",
-    "orEmail": "or drop me an email at"
+    "description": "I am open to collaborations, new opportunities, and in-depth discussions regarding cloud infrastructure, DevOps practices, and IoT automation solutions. Let's connect!"
   },
   "Footer": {
     "copyright": "All rights reserved."
