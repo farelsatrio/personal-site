@@ -84,21 +84,24 @@ export default function SocialLinks() {
   const t = useTranslations("Contact");
 
   return (
-    <section id="contact" className="px-6 py-24 md:py-32">
+    <section id="contact" className="px-6 py-28 md:py-40">
       <div className="mx-auto max-w-5xl">
         <AnimatedSection>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              {t("eyebrow")}
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
               {t("title")}
             </h2>
-            <p className="mb-10 text-muted-foreground">
+            <p className="mb-10 mt-4 text-pretty leading-relaxed text-muted-foreground">
               {t("description")}
             </p>
 
             {/* Primary CTA — Email */}
             <a
               href="mailto:farelsatriop@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
             >
               <Mail size={16} />
               farelsatriop@gmail.com
@@ -117,7 +120,7 @@ export default function SocialLinks() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-200 hover:border-foreground hover:text-foreground"
                   aria-label={link.label}
                 >
                   <Icon size={18} />

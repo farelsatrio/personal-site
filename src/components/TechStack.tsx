@@ -38,6 +38,7 @@ const TECH_STACK: StackCategory[] = [
     category: "CI/CD",
     tools: [
       { name: "GitHub Actions", iconName: "github" },
+      { name: "Jenkins", iconName: "jenkins" },
       { name: "Git", iconName: "git" },
     ],
   },
@@ -72,20 +73,25 @@ export default function TechStack() {
   const t = useTranslations("TechStack");
 
   return (
-    <section id="stack" className="px-6 py-24 md:py-32">
+    <section id="stack" className="px-6 py-28 md:py-40">
       <div className="mx-auto max-w-5xl">
-        {/* Section Header — left-aligned with description */}
+        {/* Section Header — centered */}
         <AnimatedSection>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            {t("title")}
-          </h2>
-          <p className="mb-12 max-w-lg text-muted-foreground md:mb-16">
-            {t("description")}
-          </p>
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              {t("eyebrow")}
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              {t("title")}
+            </h2>
+            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+              {t("description")}
+            </p>
+          </div>
         </AnimatedSection>
 
         {/* Stack Categories */}
-        <div className="space-y-10">
+        <div className="mt-16 space-y-12">
           {TECH_STACK.map((cat, catIndex) => (
             <AnimatedSection key={cat.category} delay={catIndex * 0.06}>
               <div>
@@ -95,19 +101,19 @@ export default function TechStack() {
                 </h3>
 
                 {/* Tool Grid */}
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                   {cat.tools.map((tool) => (
                     <div
                       key={tool.name}
-                      className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-4 transition-colors duration-200 hover:border-accent/30"
+                      className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/5"
                     >
                       <Devicon
                         name={tool.iconName}
                         logoStyle="plain"
                         colored={true}
-                        size="2rem"
+                        size="2.25rem"
                       />
-                      <span className="mt-2 text-xs text-muted-foreground">
+                      <span className="mt-3 text-xs text-muted-foreground">
                         {tool.name}
                       </span>
                     </div>

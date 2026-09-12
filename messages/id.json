@@ -4,16 +4,21 @@
     "experience": "Pengalaman",
     "achievements": "Prestasi",
     "stack": "Keahlian",
-    "contact": "Kontak"
+    "contact": "Kontak",
+    "blog": "Blog"
   },
   "Hero": {
     "greeting": "Halo, Saya",
     "title": "DevOps & Cloud Engineer",
     "bio": "Saya memiliki spesialisasi dalam bidang Cloud Computing dan DevOps, dengan minat besar dalam mengeksplorasi ekosistem Internet of Things (IoT). Saya gemar mengintegrasikan perangkat keras dan perangkat lunak untuk menghadirkan solusi otomasi yang cerdas dan efisien.",
+    "availability": "Terbuka untuk terhubung & berkolaborasi",
+    "primaryCta": "Mari Terhubung",
+    "secondaryLink": "atau lihat resume saya",
     "downloadResume": "Unduh Resume",
     "contactMe": "Hubungi Saya"
   },
   "Experience": {
+    "eyebrow": "Perjalanan",
     "title": "Pengalaman Kerja",
     "position": {
       "studentIntern": "Magang DevOps & Cloud"
@@ -27,6 +32,7 @@
     }
   },
   "Achievements": {
+    "eyebrow": "Penghargaan",
     "title": "Prestasi & Sertifikasi",
     "categories": {
       "Certification": "Sertifikasi",
@@ -41,14 +47,35 @@
     }
   },
   "TechStack": {
+    "eyebrow": "Perangkat",
     "title": "Keahlian Teknologi",
     "description": "Alat dan teknologi yang saya gunakan sehari-hari untuk membangun, merilis, dan memelihara infrastruktur cloud-native."
   },
   "Contact": {
+    "eyebrow": "Kontak",
     "title": "Hubungi Saya",
     "description": "Saya sangat terbuka untuk kolaborasi, peluang baru, maupun diskusi mendalam seputar infrastruktur cloud, praktik DevOps, dan pengembangan solusi otomatisasi berbasis IoT. Mari terhubung!"
   },
+  "Blog": {
+    "title": "Blog & Artikel Teknik",
+    "description": "Catatan, tutorial, dan wawasan seputar Infrastruktur Cloud, Otomatisasi DevOps, Kubernetes, dan IoT.",
+    "searchPlaceholder": "Cari artikel berdasarkan judul, tag, atau topik...",
+    "allCategories": "Semua Kategori",
+    "readMore": "Baca Artikel",
+    "noArticles": "Tidak ada artikel yang dipublikasikan sesuai kriteria pencarian Anda.",
+    "backToBlog": "Kembali ke Blog",
+    "adminLink": "Pengelola Admin Blog"
+  },
+  "BlogPreview": {
+    "eyebrow": "Tulisan",
+    "title": "Artikel Terbaru",
+    "description": "Eksplorasi tulisan teknis, panduan, dan pemikiran terbaru saya seputar Cloud Computing dan DevOps.",
+    "viewAll": "Lihat Semua Artikel",
+    "readMore": "Baca Selengkapnya",
+    "minRead": "mnt baca",
+    "empty": "Belum ada artikel yang dipublikasikan. Nantikan artikel terbaru segera!"
+  },
   "Footer": {
-    "copyright": ""
+    "copyright": "Hak cipta dilindungi undang-undang."
   }
 }

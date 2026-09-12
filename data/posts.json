@@ -1,0 +1,19 @@
+[
+  {
+    "id": "post-1789212554517-xl1zq",
+    "title": "Implementasi IoT pada Sistem Penyiraman Tanaman dengan Dashboard Web Interaktif",
+    "slug": "implementasi-iot-pada-sistem-penyiraman-tanaman-dengan-dashboard-web-interaktif",
+    "excerpt": "Penyiram tanaman otomatis, monitoring menggunakan web berbasis IoT",
+    "content": "## Smart Irrigation Berbasis IoT\n\nSeringkali tanaman kesayangan mati kekeringan karena kita terlalu sibuk atau sedang bepergian. Untuk mengatasinya, saya membuat project **Smart Plant Watering** berbasis IoT. \n\nSistem ini tidak hanya menyiram otomatis, tapi juga bisa **dipantau (monitoring)** dan **dikontrol manual** langsung melalui browser web!\n\n### Fitur Utama\n\n- **Auto Watering:** Menyiram otomatis saat tanah terdeteksi kering.\n- **Web Monitoring:** Cek kelembapan tanah secara *real-time* via web.\n- **Manual Control:** Tombol siram manual di web kapan saja.\n\n### ️ Alat dan Bahan\n\n- **ESP32**\n- **Sensor Kelembapan Tanah\n- **Modul Relay 5V** & **Mini Water Pump**\n- **Kabel Jumper & Breadboard**\n- **Platform Web:** Custom Web Server\n\n### Cara Kerja Singkat\n\n1. Sensor membaca kadar air tanah dan mengirim data ke ESP32.\n2. ESP32 mengirim data ke Cloud/Web untuk ditampilkan di dashboard.\n3. Jika tanah kering (misal < 30%), pompa menyala otomatis.\n4. User bisa menekan tombol \"Siram\" di web untuk mengaktifkan pompa secara manual.\n\n### Skema Wiring Sederhana\n\n- **Sensor:** VCC ke 3.3V, GND ke GND, OUT ke GPIO 34.\n- **Relay:** VCC ke 5V, GND ke GND, IN ke GPIO 26.\n- **Pompa:** Disambungkan ke Relay dan power supply eksternal 5V.\n\n",
+    "coverImage": "https://raw.githubusercontent.com/farelsatrio/gambar/main/IoT_Penyiram_Tanaman.jpg",
+    "category": "IoT",
+    "tags": [
+      "IoT",
+      "Cloud"
+    ],
+    "status": "published",
+    "createdAt": "2026-09-12T11:29:14.517Z",
+    "updatedAt": "2026-09-12T13:17:24.134Z",
+    "publishedAt": "2026-09-12T11:29:20.700Z"
+  }
+]

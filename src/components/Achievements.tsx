@@ -22,56 +22,54 @@ export default function Achievements() {
   };
 
   return (
-    <section id="achievements" className="px-6 py-24 md:py-32">
+    <section id="achievements" className="px-6 py-28 md:py-40">
       <div className="mx-auto max-w-5xl">
-        {/* Section Header — left-aligned */}
+        {/* Section Header — editorial, left-aligned */}
         <AnimatedSection>
-          <h2 className="mb-12 text-3xl font-bold tracking-tight text-foreground md:mb-16 md:text-4xl">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            {t("eyebrow")}
+          </p>
+          <h2 className="mt-3 max-w-md text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             {t("title")}
           </h2>
         </AnimatedSection>
 
-        {/* Grid — 2 columns matching 2 items */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        {/* Compact rows — no bulky cards */}
+        <div className="mt-12 md:mt-16">
           {achievements.map((item, index) => (
-            <AnimatedSection key={item.titleKey} delay={index * 0.1}>
-              <div className="flex h-full flex-col justify-between rounded-xl border border-border bg-card p-6 transition-colors duration-200 hover:border-accent/30 md:p-8">
-                <div>
-                  {/* Icon + Category */}
-                  <div className="mb-5 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                      {getIcon(item.iconName)}
-                    </div>
-                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      {t(`categories.${item.category}`)}
-                    </span>
-                  </div>
+            <AnimatedSection
+              key={item.titleKey}
+              delay={index * 0.08}
+              variant="fade-right"
+            >
+              <div className="group flex items-center gap-5 border-t border-border py-6 transition-colors last:border-b hover:bg-card/60">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-muted text-foreground transition-transform duration-200 group-hover:-translate-y-0.5">
+                  {getIcon(item.iconName)}
+                </div>
 
-                  {/* Title & Organization */}
-                  <h3 className="text-lg font-semibold text-foreground">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    {t(`categories.${item.category}`)} · {item.date}
+                  </p>
+                  <h3 className="mt-1 truncate text-base font-semibold text-foreground sm:text-lg">
                     {t(item.titleKey)}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <p className="mt-0.5 text-sm text-muted-foreground">
                     {item.organization}
                   </p>
                 </div>
 
-                {/* Footer: Date & Link */}
-                <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
-                  <span className="text-sm text-muted-foreground">
-                    {item.date}
-                  </span>
-                  {item.credentialLink && (
-                    <a
-                      href={item.credentialLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-accent transition-colors hover:text-accent-foreground"
-                    >
-                      Verify <ExternalLink size={14} />
-                    </a>
-                  )}
-                </div>
+                {item.credentialLink && (
+                  <a
+                    href={item.credentialLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                  >
+                    Verify
+                    <ExternalLink size={14} />
+                  </a>
+                )}
               </div>
             </AnimatedSection>
           ))}

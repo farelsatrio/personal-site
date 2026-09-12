@@ -4,16 +4,21 @@
     "experience": "Experience",
     "achievements": "Achievements",
     "stack": "Stack",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog"
   },
   "Hero": {
     "greeting": "Hi, I'm",
     "title": "DevOps & Cloud Engineer",
     "bio": "I specialize in Cloud Computing and DevOps, with a passion for exploring the Internet of Things (IoT). I enjoy bridging the gap between hardware and software to engineer intelligent automation solutions.",
+    "availability": "Open to connect & collaborate",
+    "primaryCta": "Let's Connect",
+    "secondaryLink": "or take a look at my resume",
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me"
   },
   "Experience": {
+    "eyebrow": "Journey",
     "title": "Work Experience",
     "position": {
       "studentIntern": "DevOps & Cloud Student Intern"
@@ -27,6 +32,7 @@
     }
   },
   "Achievements": {
+    "eyebrow": "Recognition",
     "title": "Achievements & Certifications",
     "categories": {
       "Certification": "Certification",
@@ -41,12 +47,33 @@
     }
   },
   "TechStack": {
+    "eyebrow": "Toolbox",
     "title": "Tech Stack",
     "description": "The tools and technologies I work with daily to build, deploy, and maintain cloud-native infrastructure."
   },
   "Contact": {
+    "eyebrow": "Contact",
     "title": "Get in Touch",
     "description": "I am open to collaborations, new opportunities, and in-depth discussions regarding cloud infrastructure, DevOps practices, and IoT automation solutions. Let's connect!"
+  },
+  "Blog": {
+    "title": "Blog & Tech Articles",
+    "description": "Thoughts, tutorials, and insights on Cloud Infrastructure, DevOps automation, Kubernetes, and IoT.",
+    "searchPlaceholder": "Search articles by title, tags, or topic...",
+    "allCategories": "All Categories",
+    "readMore": "Read Article",
+    "noArticles": "No published articles found matching your criteria.",
+    "backToBlog": "Back to Blog",
+    "adminLink": "Admin Blog Manager"
+  },
+  "BlogPreview": {
+    "eyebrow": "Writing",
+    "title": "Latest Articles",
+    "description": "Explore my latest technical writings, guides, and thoughts on Cloud Computing and DevOps.",
+    "viewAll": "View All Articles",
+    "readMore": "Read Article",
+    "minRead": "min read",
+    "empty": "No published articles available yet. Check back soon!"
   },
   "Footer": {
     "copyright": "All rights reserved."
